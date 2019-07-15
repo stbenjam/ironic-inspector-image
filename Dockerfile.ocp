@@ -1,9 +1,7 @@
-FROM rhel7:latest
+FROM ubi8
 
-RUN yum install -y python-requests && \
-    curl https://raw.githubusercontent.com/openstack/tripleo-repos/master/tripleo_repos/main.py | python - current-tripleo && \
-    yum update -y && \
-    yum install -y openstack-ironic-inspector crudini psmisc iproute iptables && \
+RUN yum update -y && \
+    yum install -y openstack-ironic-inspector crudini psmisc iproute iptables sqlite && \
     yum clean all
 
 RUN mkdir -p /var/lib/ironic-inspector && \
