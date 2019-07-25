@@ -33,4 +33,3 @@ HEALTHCHECK CMD /bin/runhealthcheck
 RUN chmod +x /bin/runironic-inspector
 
 ENTRYPOINT ["/bin/runironic-inspector"]
-
